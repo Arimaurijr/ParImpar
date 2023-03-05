@@ -3,20 +3,43 @@ using System;
 
 internal class Program
 {
+
     private static void Main(string[] args)
     {
         double numero = 0.0;
+        bool verificacao = false;
 
-        Console.WriteLine("Digite um número");
-        numero = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+        void Entrada()
+        {
+            Console.WriteLine("Digite um número");
+            numero = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+        }
 
-        if (numero % 2 == 0.0)
+        bool ParImpar()
         {
-            Console.WriteLine("O número digitado é PAR");
+            if (numero % 2 == 0)
+            {
+                verificacao = true;
+            }
+
+            return verificacao;
         }
-        else
+
+        void Saida()
         {
-            Console.WriteLine("O número digitado é ÍMPAR");
+            if (ParImpar())
+            {
+                Console.WriteLine("O número é par");
+            }
+            else
+            {
+                Console.WriteLine("O número é ímpar");
+            }
         }
+
+        Entrada();
+        ParImpar();
+        Saida();
+
     }
 }
